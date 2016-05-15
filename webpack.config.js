@@ -1,3 +1,5 @@
+var path = require('path');
+
 module.exports = {
   context: __dirname + '/src',
   entry: './main',
@@ -10,12 +12,12 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel',
-        query: {
-          presets: ['es2015'],
-          plugins: ['transform-runtime']
-        }
+        loader: 'babel'
       }
     ]
-  }
+  },
+  resolve: {
+    root: path.resolve(__dirname, 'src')
+  },
+  devtool: 'source-map'
 };
